@@ -1,0 +1,47 @@
+#TWOSUM
+''' ATTEMPT 1 '''
+class Solution(object):
+    def twoSum(self, nums, target):
+        numbers = []
+        for n in nums:
+            if n < target:
+                numbers.append(n)
+                return numbers
+            else:
+                continue
+            print(numbers)
+
+# above is what I coded, below is what CGPT corrected
+
+
+sol = Solution() # Create an instance of the Solution class
+
+# Call the twoSum method using the instance 'sol'
+list_nums = [2, 7, 11, 15]
+result = sol.twoSum(list_nums, 9)
+print(result)
+
+
+''' ATTEMPT 2 '''
+#what i came up with:
+class Solution(object):
+    def twoSum(self, nums, target):
+        for n in nums: # outer var in outer seq
+            for j in nums:#inner var in inner seq
+                if (n+j==target):
+                    return("["+ str(n+j) + "]")
+                else:
+                    continue
+
+                    
+#what CGPT corrected: 
+class Solution(object):
+    def twoSum(self, nums, target):
+        # Use index to avoid duplication 
+        for i in range(len(nums)):  # FUNCTIONS: creates a sequence of indices from 0 to the number of elements in nums minus one.
+            for j in range(i + 1, len(nums)):  # Start j from i + 1 to avoid using the same element
+                if nums[i] + nums[j] == target:  # Check if the sum equals target
+                    return [i, j]  # Return the indices
+        return []  # Return an empty list if no solution is found
+
+
